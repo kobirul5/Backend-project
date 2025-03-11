@@ -1,13 +1,10 @@
-import mongoose from 'mongoose';
-import { DB_NAME } from './constants';
-import express from 'express';
+import dotenv from 'dotenv';
 
-(async()=>{
-    try{
-       await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-    }catch(error){
+import connectDb from './db/index.js';
 
-    }
+dotenv.config({
+    path: '/env'
+})
 
 
-})()
+connectDb()
